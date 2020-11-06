@@ -1,0 +1,33 @@
+<div style="height: 100%!important;background-image: url('<%= image_path('login_bg.jpg') %>'); background-size: cover">
+  <div class="offset-4 col-4 authentication-inner py-5">
+    <div class="card">
+      <div class="p-4 p-sm-5">
+        <div class="d-flex justify-content-center align-items-center pb-2 mb-4">
+          <%= image_tag('logo', style: 'height: 90px;') %>
+        </div>
+
+        <h5 class="text-center text-muted font-weight-normal mb-4">Acesso ao Painel Administrativo</h5>
+
+        <% if alert %>
+          <div class="d-flex justify-content-center">
+            <p class="text-danger"><%= alert %></p>
+          </div>
+        <% end %>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.label :email, class: 'form-label' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:" form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, class: 'form-label' %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </div>
+          <div class="d-flex justify-content-center align-items-center m-0">
+            <%= f.submit 'Entrar', class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

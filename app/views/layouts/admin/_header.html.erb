@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container">
+    <ul class="navbar-nav">
+      <li class="nav-item <%= current_page?(admin_root_path)? "active" : "" %>">
+        <a class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Administradores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Usuários</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Posts</a>
+      </li>
+    </ul>
+    <div class="nav-item d-flex">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <div class="py-2 mr-4" style="color:#fff;"><%= current_admin.email %></div>
+        </li>
+        <li class="nav-item">
+          <%= link_to("Sair", destroy_admin_session_path, method: :delete, class: "nav-link")%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
