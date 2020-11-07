@@ -1,0 +1,27 @@
+<%= link_to("Novo Administrador", new_admin_admin_path, class: "btn btn-success mb-4") %>
+
+<h4>Admins</h4><br>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Criado em</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admins.each do |admin| %>
+    <tr>
+      <th scope="row"><%= admin.id %></th>
+      <td><%= admin.name %></td>
+      <td><%= admin.email %></td>
+      <td><%= admin.created_at %></td>
+      <td><%= link_to "Editar", edit_admin_admin_path(admin), class: "btn btn-warning btn-sm" %></td>
+      <td><%= link_to "Deletar", admin_admin_path(admin), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %></td>
+    <% end %>
+  </tbody>
+</table>

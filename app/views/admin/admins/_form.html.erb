@@ -1,0 +1,31 @@
+<div class="card" style="background-color:#f6f6f6;">
+  <div class="card-body">
+    <%= form_with(model: [:admin, admin], local: true) do |f| %>
+      <%= render "layouts/form_errors", record: admin %>
+      <div class="form-group">
+        <label>Nome</label>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <%= f.email_field :email, class: "form-control" %>
+      </div>
+      <div class="form-row">
+        <div class="col-6">
+          <div class="form-group">
+            <label>Senha</label>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Confirmar Senha</label>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <%= link_to "Voltar", admin_admins_path, class: "btn btn-secondary ml-3" %>
+    <% end %>
+  </div>
+</div>
