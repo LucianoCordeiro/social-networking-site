@@ -1,5 +1,5 @@
 class Admin::AdminsController < AdminController
-  before_action :set_admin, only: [:edit, :update, :destrozy]
+  before_action :set_admin, only: [:edit, :update, :destroy]
 
   def index
     @admins = Admin.order(id: :desc)
