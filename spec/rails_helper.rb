@@ -62,3 +62,7 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+class Rack::Test::UploadedFile
+  attr_reader :headers
+end
