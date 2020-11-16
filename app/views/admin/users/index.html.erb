@@ -1,0 +1,25 @@
+<h4>Usuários</h4><br>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Foto</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Criado em</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= user.id %></th>
+      <td><%= image_tag(user.avatar, class: "ui-w-100-forced rounded-circle", style: "width: 30px; height: 30px") %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+    <% end %>
+  </tbody>
+</table>
