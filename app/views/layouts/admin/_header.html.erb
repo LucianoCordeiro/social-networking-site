@@ -10,8 +10,8 @@
       <li class="nav-item" <%= current_page?(admin_users_path)? "active" : "" %>">
         <%= link_to("Usuários", admin_users_path, class: "nav-link") %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Posts</a>
+      <li class="nav-item <%= current_page?(admin_posts_path)? "active" : "" %>">
+        <%= link_to("Posts", admin_posts_path, class: "nav-link") %>
       </li>
     </ul>
     <div class="nav-item d-flex">
