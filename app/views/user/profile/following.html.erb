@@ -1,0 +1,15 @@
+<div class="row">
+  <% @following.each do |user| %>
+    <div class="col-lg-4">
+      <div class="card">
+        <%= render("user_card_header", user: user) %>
+        <div class="card-body">
+          Email:<p class="card-text text-muted"><%= user.email %></p>
+          Telefone:<p class="card-text text-muted"><%= user.phone %></p>
+          <%= link_to("Deixar de Seguir", user_unfollow_path(user), method: :post, class: "btn btn-secondary") %>
+        </div>
+
+      </div>
+    </div>
+  <% end %>
+</div>

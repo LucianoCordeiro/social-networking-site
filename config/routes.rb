@@ -13,7 +13,13 @@ Rails.application.routes.draw do
 
   namespace :user do
     get 'profile', to: "profile#show"
+    get 'potential_to_follow', to: "profile#potential_to_follow"
+    get 'following', to: "profile#following"
+    get 'followers', to: "profile#followers"
     resources :posts, only: :create
+
+    post 'follow/:id', to: "subscriptions#follow", as: :follow
+    post 'unfollow/:id', to: "subscriptions#unfollow", as: :unfollow
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

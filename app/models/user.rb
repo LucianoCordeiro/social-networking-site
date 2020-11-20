@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :following_subscriptions, foreign_key: :followed_by_id, class_name: 'Subscription'
   has_many :following, through: :following_subscriptions, source: :followed
 
+  scope :potential_to_follow, -> (user) { where.not(id: user.following.pluck(:id)).where.not(id: user.id) }
+
 end

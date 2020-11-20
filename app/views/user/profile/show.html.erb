@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="card">
-      <h5 class="card-header"><%= image_tag(current_user.avatar, class: "ui-w-100-forced rounded-circle mr-3", style: "width: 90px; height: 90px") %> <%= current_user.name %></h5>
+      <%= render("user_card_header", user: current_user) %>
       <div class="card-body">
         Email:<p class="card-text text-muted"><%= current_user.email %></p>
         Telefone:<p class="card-text text-muted"><%= current_user.phone %></p>
