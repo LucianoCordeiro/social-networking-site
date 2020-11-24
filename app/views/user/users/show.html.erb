@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <%= render("user/user_card_header", user: @user) %>
+      <div class="card-body">
+        Email:<p class="card-text text-muted"><%= @user.email %></p>
+        Telefone:<p class="card-text text-muted"><%= @user.phone %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <% @user.posts.order(created_at: :desc).each do |post| %>
+      <%= render "user/post_card", post: post %>
+    <% end %>
+  </div>
+</div>

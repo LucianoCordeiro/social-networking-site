@@ -1,0 +1,15 @@
+<div class="card text-white bg-dark mb-3 mt-3">
+  <div class="card-header">
+    <%= link_to post.user.name, post.user == current_user ? user_profile_path : user_user_path(post.user) %>
+
+    <% if post.user == current_user %>
+      <%= link_to user_post_path(post), method: :delete, class: "close text-white" do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="card-body">
+    <small class="text-muted"><%= post.created_at.strftime("%d/%m/%Y %H:%M") %></small>
+    <p class="card-text"><%= post.body %></p>
+  </div>
+</div>
