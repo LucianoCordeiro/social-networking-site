@@ -11,5 +11,10 @@
   <div class="card-body">
     <small class="text-muted"><%= post.created_at.strftime("%d/%m/%Y %H:%M") %></small>
     <p class="card-text"><%= post.body %></p>
+    <%= link_to nil, {class: "like-toggle", id: post.id, remote: true} do %>
+      <i style="font-size:18px;color:<%= post.liked_by_user?(current_user) ? "#80c0ff" : "#ffffff" %> " class="fa fa-thumbs-up"></i>
+    <% end %>
+
+    <span class="ml-2"><%= post.likes.count %></span>
   </div>
 </div>
