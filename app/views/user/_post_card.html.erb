@@ -1,4 +1,4 @@
-<div class="card text-white bg-dark mb-3 mt-3">
+<div class="card text-white bg-dark mb-3 mt-3" style="font-size:17px;">
   <div class="card-header">
     <%= link_to post.user.name, post.user == current_user ? user_profile_path : user_user_path(post.user) %>
 
@@ -18,3 +18,21 @@
     <span class="ml-2"><%= post.likes.count %></span>
   </div>
 </div>
+
+<%= form_with(model: [:user, @comment]) do |f| %>
+  <%= f.hidden_field(:post_id, value: post.id) %>
+  <div class="form-group">
+    <%= f.text_area :body, rows: 2, class: "form-control", placeholder: "Escreva seu comentário...", required: true %>
+  </div>
+  <div class="d-flex">
+    <button type="submit" class="btn btn-sm btn-primary ml-auto">Enviar</button>
+  </div>
+<% end %>
+
+<div id="post<%= post.id %>-comments">
+  <% post.comments.order(created_at: :desc).each do |comment| %>
+    <%= render("comment_card", comment: comment) %>
+  <% end %>
+</div>
+
+<hr class="bg-secondary">

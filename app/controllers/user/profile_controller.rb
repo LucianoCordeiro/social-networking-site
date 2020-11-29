@@ -2,6 +2,7 @@ class User::ProfileController < UserController
 
   def show
     @post = Post.new
+    @comment = Comment.new
   end
 
   def potential_to_follow

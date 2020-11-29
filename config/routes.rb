@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       end
     end
     resources :users, only: :show
+    resources :comments, only: [:create, :destroy]
 
     post 'follow/:id', to: "subscriptions#follow", as: :follow
     post 'unfollow/:id', to: "subscriptions#unfollow", as: :unfollow

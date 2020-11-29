@@ -1,0 +1,17 @@
+<div id="comment<%= comment.id %>">
+  <div class="card text-white bg-dark mb-3 mt-3" style="font-size:14px;background-color:#464646!important;">
+    <div class="card-header">
+      <%= link_to comment.user.name, comment.user == current_user ? user_profile_path : user_user_path(post.user) %>
+
+      <% if comment.user == current_user %>
+        <%= link_to user_comment_path(comment), method: :delete, class: "close text-white", remote: true do %>
+          <span aria-hidden="true">&times;</span>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <small class="text-muted"><%= comment.created_at.strftime("%d/%m/%Y %H:%M") %></small>
+      <p class="card-text"><%= comment.body %></p>
+    </div>
+  </div>
+</div>
