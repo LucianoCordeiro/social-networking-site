@@ -1,6 +1,7 @@
 <div id="comment<%= comment.id %>">
   <div class="card text-white bg-dark mb-3 mt-3" style="font-size:14px;background-color:#464646!important;">
     <div class="card-header">
+      <%= image_tag(comment.user.avatar, class: "ui-w-100-forced rounded-circle mr-3", style: "width: 23px; height: 23px") %>
       <%= link_to comment.user.name, comment.user == current_user ? user_profile_path : user_user_path(post.user) %>
 
       <% if comment.user == current_user %>
